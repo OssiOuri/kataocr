@@ -1,4 +1,4 @@
 *.log
 *.html
-report.xml
+output.xml
 *.pyc

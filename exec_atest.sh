@@ -1,2 +1,2 @@
 #!/bin/sh
-python -m --outputdir ./output robot bigdigit.robot
+python -m robot --outputdir ./output bigdigit.robot
