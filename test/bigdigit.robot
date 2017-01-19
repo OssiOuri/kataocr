@@ -1,13 +1,14 @@
 *** Settings ***
 Library           OperatingSystem
-Library           ../src/ocr.py
-Library           ./lib/big_digit_test_util.py
+Resource          ./lib/big_digit_test_util.py
+Resource          ../src/ocr.py
 
 *** Variables ***
 
 *** Test Cases ***
 userstory_4
     [Documentation]    Reads the big char input file, converts big chars to ascii string and compares conversion. 
+    [Tags]    smoke
     run keyword    Convert Big Digits And Compare    ./userstory4/input.txt    ./userstory4/ref.txt
 
 
