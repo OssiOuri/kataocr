@@ -12,8 +12,8 @@ node { // <1>
 }
 
 node { // <2>
-    echo 'Hello from Jenkinsfile 2' // <2> 
+    echo 'Running robot tests' // <2> 
     stage('Phase 2') {
-        sh 'echo \'and the second printout.\'' 
+        sh './test/exec_atest.sh' 
     }
 }
