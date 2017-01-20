@@ -4,7 +4,7 @@ node { // <1>
     stage('Build') {
         sh 'echo \'hallooooo\''
         sh 'pwd'
-        #git 'https://github.com/OssiOuri/kataocr'
+        //git 'https://github.com/OssiOuri/kataocr'
         checkout scm
         sh './jenkins/test.sh'
         // comment is like this
