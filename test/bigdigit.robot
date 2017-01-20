@@ -1,7 +1,7 @@
 *** Settings ***
 Library           OperatingSystem
-Resource          ./lib/big_digit_test_util.py
-Resource          ../src/ocr.py
+Library           ./lib/big_digit_test_util.py
+Library           ../src/ocr.py
 
 *** Variables ***
 
