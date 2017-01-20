@@ -10,3 +10,10 @@ node { // <1>
         // comment is like this
     }
 }
+
+node { // <2>
+    echo 'Hello from Jenkinsfile 2' // <2> 
+    stage('Phase 2') {
+        sh 'echo \'and the second printout.\'' 
+    }
+}
