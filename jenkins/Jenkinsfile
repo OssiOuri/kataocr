@@ -1,9 +1,11 @@
 #!groovy
 node { // <1>
     echo 'Hello from Jenkinsfile' // <2> 
-    stage('run shell command and script') {
+    stage('Build') {
         sh 'echo \'hallooooo\''
         sh 'pwd'
+        #git 'https://github.com/OssiOuri/kataocr'
+        checkout scm
         sh './jenkins/test.sh'
         // comment is like this
     }
