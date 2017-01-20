@@ -1,4 +1,8 @@
 #!groovy
 node { // <1>
     echo 'Hello from Jenkinsfile' // <2> 
+    stage('run shell command') {
+        sh 'echo \'hallooooo\''
+        // comment is like this
+    }
 }
