@@ -3,6 +3,7 @@ node { // <1>
     echo 'Hello from Jenkinsfile' // <2> 
     stage('run shell command and script') {
         sh 'echo \'hallooooo\''
+        sh 'pwd'
         sh './jenkins/test.sh'
         // comment is like this
     }
