@@ -9,10 +9,3 @@ node { // <1>
     }
 }
 
-node { // <2>
-    echo 'Running robot tests' // <2> 
-    stage('Phase 2') {
-        //sh '/home/ossi/omenia/projects/zef/docker/oto/docker_start_oto.sh'
-        sh 'hello 2'
-    }
-}
