@@ -4,16 +4,15 @@ node { // <1>
     stage('Build') {
         sh 'echo \'hallooooo\''
         sh 'pwd'
-        //git 'https://github.com/OssiOuri/kataocr'
         checkout scm
         sh './jenkins/test.sh'
-        // comment is like this
     }
 }
 
 node { // <2>
     echo 'Running robot tests' // <2> 
     stage('Phase 2') {
-        sh '/home/ossi/omenia/projects/zef/docker/oto/docker_start_oto.sh'
+        //sh '/home/ossi/omenia/projects/zef/docker/oto/docker_start_oto.sh'
+        sh 'hello 2'
     }
 }
