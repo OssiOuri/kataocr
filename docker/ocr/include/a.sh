@@ -4,8 +4,10 @@ tar xfvz /tmp/geckodriver.tar.gz
 ln -fs /tmp/geckodriver /usr/bin/geckodriver
 #unzip /tmp/chromedriver.zip -d /tmp
 #cp /tmp/chromedriver /usr/bin/chromedriver
-cd /opt/share/
-./test/exec_atest.sh
+cd /opt/share/test
+pwd
+ls -l
+./exec_atest.sh
 #if [ $? -eq 0 ]
 #then
 #  echo "Successfully run template"
