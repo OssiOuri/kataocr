@@ -8,4 +8,13 @@ node { // <1>
         sh './jenkins/test.sh'
     }
 }
+node { // <2>
+    echo 'Hello from node 2' // <2> 
+    stage('Build') {
+        sh 'echo \'hallooooo\''
+        sh 'pwd'
+        sh './jenkins/test.sh'
+    }
+}
+
 
