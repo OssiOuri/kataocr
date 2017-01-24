@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo docker build -t ocrtest .
+sudo docker build -t ocrbuntu .
