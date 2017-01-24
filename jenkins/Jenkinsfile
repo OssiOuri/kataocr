@@ -11,8 +11,8 @@ node { // <1>
 node { // <2>
     echo 'Hello from node 2' // <2> 
     stage('Build') {
-        sh 'echo \'running exec_atest.sh\''
-        sh './test/exec_atest.sh'
+        sh 'echo \'starting docker container\''
+        sh './docker/ocr/docker_start_ocr.sh'
     }
 }
 
