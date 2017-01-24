@@ -12,6 +12,8 @@ node { // <2>
     echo 'Hello from node 2' // <2> 
     stage('Build') {
         sh 'echo \'starting docker container\''
+        sh 'sudo ls -l /'
+        sh 'sudo docker --version'
         sh './docker/ocr/docker_start_ocr.sh'
     }
 }
