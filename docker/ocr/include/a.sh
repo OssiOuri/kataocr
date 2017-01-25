@@ -4,9 +4,12 @@ tar xfvz /tmp/geckodriver.tar.gz
 ln -fs /tmp/geckodriver /usr/bin/geckodriver
 #unzip /tmp/chromedriver.zip -d /tmp
 #cp /tmp/chromedriver /usr/bin/chromedriver
-cd /opt/share/test
+cd /opt/share
 ls -l
-exec_atest.sh
+cd test
+ls -l
+echo "next executing exec_atest.sh"
+./exec_atest.sh
 return_value=$?
 if [ $return_value -eq 0 ]
 then
