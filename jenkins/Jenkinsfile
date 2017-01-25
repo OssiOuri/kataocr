@@ -27,10 +27,11 @@ node { // <3>
     echo 'Hello from node 3' 
     echo "Running ${env.BUILD_ID}"
     stage('Deploy') {
+        // Archive test results
+        archiveArtifacts artifacts: 'output/*.html', excludes: 'output/*.txt'
         if (currentBuild.result == 'SUCCESS') { // <3>
             sh 'echo \'Build result SUCCESS\''
         }
     }
-    /* .. snip .. */
 }
 
