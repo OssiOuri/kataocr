@@ -5,6 +5,7 @@ ln -fs /tmp/geckodriver /usr/bin/geckodriver
 #unzip /tmp/chromedriver.zip -d /tmp
 #cp /tmp/chromedriver /usr/bin/chromedriver
 cd /opt/share/test
+ls -l
 ./exec_atest.sh
 if [ $? -eq 0 ]
 then
