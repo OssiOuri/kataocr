@@ -14,12 +14,18 @@ node { // <2>
         sh 'echo \'starting docker container\''
         sh 'sudo ls -l /'
         sh 'sudo docker --version'
-        sh './docker/ocr/docker_start_ocr.sh'
+        try {
+            sh './docker/ocr/docker_start_ocr.sh'
+            currentBuild.result = 'SUCCESS'
+        } catch (Exception err) {
+            currentBuild.result = 'FAILURE'
+        }
+        echo "RESULT: ${currentBuild.result}"
     }
 }
 node { // <3>
     echo 'Hello from node 3' 
-    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+    echo "Running ${env.BUILD_ID}"
     stage('Deploy') {
         if (currentBuild.result == 'SUCCESS') { // <3>
             sh 'echo \'Build result SUCCESS\''
