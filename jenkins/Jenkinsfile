@@ -17,5 +17,14 @@ node { // <2>
         sh './docker/ocr/docker_start_ocr.sh'
     }
 }
-
+node { // <3>
+    echo 'Hello from node 3' 
+    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+    stage('Deploy') {
+        if (currentBuild.result == 'SUCCESS') { // <3>
+            sh 'echo \'Build result SUCCESS\''
+        }
+    }
+    /* .. snip .. */
+}
 
