@@ -2,18 +2,11 @@
 node { // <1>
     echo 'Hello from Jenkinsfile' // <2> 
     stage('Build') {
-        sh 'echo \'hallooooo\''
-        sh 'pwd'
         checkout scm
         sh './jenkins/test.sh'
     }
-}
-node { // <2>
-    echo 'Hello from node 2' // <2> 
-    stage('Build') {
+    stage('Running tests') {
         sh 'echo \'starting docker container\''
-        sh 'sudo ls -l /'
-        sh 'sudo docker --version'
         try {
             sh './docker/ocr/docker_start_ocr.sh'
             currentBuild.result = 'SUCCESS'
@@ -22,18 +15,19 @@ node { // <2>
         }
         echo "RESULT: ${currentBuild.result}"
     }
-}
-node { // <3>
-    echo 'Hello from node 3' 
     echo "Running ${env.BUILD_ID}"
     stage('Deploy') {
         // Archive test results
-        sh 'pwd'
-        sh 'ls -l'
         archiveArtifacts artifacts: 'test/output/*.html', excludes: 'test/output/*.txt'
         if (currentBuild.result == 'SUCCESS') { // <3>
             sh 'echo \'Build result SUCCESS\''
         }
+    }
+}
+node { // <1>
+    echo 'Hello from node 2' // <2> 
+    stage('Build 2') {
+        sh 'echo haloo'
     }
 }
 
