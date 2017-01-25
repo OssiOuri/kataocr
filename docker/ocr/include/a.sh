@@ -7,11 +7,12 @@ ln -fs /tmp/geckodriver /usr/bin/geckodriver
 cd /opt/share/test
 ls -l
 exec_atest.sh
-if [ $? -eq 0 ]
+return_value=$?
+if [ $return_value -eq 0 ]
 then
-  echo "Successfully run exec_atest"
+  echo "Tests passed (exec_atest)"
   exit 0
 else
-  echo "Unsuccesfully run exec_atest" 
-  exit $1
+  echo "Test failed (exec_atest)" 
+  exit $return_value
 fi
