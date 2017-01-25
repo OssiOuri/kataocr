@@ -23,5 +23,5 @@ Convert Big Digits And Compare
     : FOR    ${acc}    IN    @{account}    
     \    Should Be Equal    ${acc}    @{ref_account}[${index}]    
     \    ${index}     evaluate    ${index}+1
-    Should Be True    ${index} > 111
+    Should Be True    ${index} > 11
 
