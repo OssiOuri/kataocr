@@ -11,7 +11,6 @@ userstory_4
     [Tags]    smoke
     run keyword    Convert Big Digits And Compare    ./userstory4/input.txt    ./userstory4/ref.txt
 
-
 *** Keywords ***
 Convert Big Digits And Compare
     [Arguments]    ${bigcharfile}    ${referencefile}
@@ -24,4 +23,3 @@ Convert Big Digits And Compare
     \    Should Be Equal    ${acc}    @{ref_account}[${index}]    
     \    ${index}     evaluate    ${index}+1
     Should Be True    ${index} > 11
-
