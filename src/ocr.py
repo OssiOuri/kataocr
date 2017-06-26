@@ -1,5 +1,6 @@
 # Ossi Ouri
 # Task description: http://codingdojo.org/cgi-bin/index.pl?KataBankOCR
+# rebase testing
 
 import sys
 
