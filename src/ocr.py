@@ -1,9 +1,7 @@
 # Ossi Ouri
 # Task description: http://codingdojo.org/cgi-bin/index.pl?KataBankOCR
-# Testing - testing - testing - testing
 
 import sys
-
 
 def get_bdigit(d, digit_position):
     """Function receives big digit bank account (first parameter) and returns
@@ -16,14 +14,12 @@ def get_bdigit(d, digit_position):
 
     return bdigit
 
-
 def print_bdigit(d):
     """Debug function to print a big digit or big digit account.
     """
     print d[0]
     print d[1]
     print d[2]
-
 
 def get_bdigit_cvalue(d):
     """ Function receives a big digit, converts that to a code value
@@ -52,7 +48,6 @@ def get_bdigit_cvalue(d):
                     value = value | (2 << (i * 2))
     return value
 
-
 def init_conversion_dictionary(d):
     """Function initializes hash function so that all big digits are identified.
     """
@@ -63,7 +58,6 @@ def init_conversion_dictionary(d):
     for i in range(10):
         x = get_bdigit_cvalue(get_bdigit(bdigit_from_0_to_9, i))
         d[x] = i
-
 
 def checksum(a):
     """
@@ -78,7 +72,6 @@ def checksum(a):
         return True
     else:
         return False
-
 
 def fix_bdigit(bdigit_cvalue, bdigit_to_dec):
     """ """
@@ -114,7 +107,6 @@ def fix_bdigit(bdigit_cvalue, bdigit_to_dec):
         bdigit_cvalue = org_cvalue
     return change_candidates
 
-
 def fix_all_digit(a, bdigit_account, bdigit_to_dec):
     """ """
     b = []
@@ -133,7 +125,6 @@ def fix_all_digit(a, bdigit_account, bdigit_to_dec):
             t[i] = org_t_i
     return b
 
-
 def find_bank_accounts_from_checksum_failure(b, bdigit_to_dec, bdigit_account):
     """ """
     a = b.pop(0)
@@ -142,7 +133,6 @@ def find_bank_accounts_from_checksum_failure(b, bdigit_to_dec, bdigit_account):
     alist = fix_all_digit(a, bdigit_account, bdigit_to_dec)
     b.extend(alist)
     return 0
-
 
 def fix_illegal_digit(a, bdigit_account, bdigit_to_dec):
     """ """
@@ -160,7 +150,6 @@ def fix_illegal_digit(a, bdigit_account, bdigit_to_dec):
                 b.append(aa)
             break
     return b
-
 
 def find_bank_accounts_from_illegal(b, bdigit_to_dec, bdigit_account):
     """This function receives a list of illegal bank accounts, hash
@@ -187,7 +176,6 @@ def find_bank_accounts_from_illegal(b, bdigit_to_dec, bdigit_account):
     find_bank_accounts_from_illegal(b, bdigit_to_dec, bdigit_account)
     return 0
 
-
 def remove_checksum_invalid_bank_accounts(a):
     """This function receives a list of bank accounts and removes checksum
     invalid accounts from the list.
@@ -199,7 +187,6 @@ def remove_checksum_invalid_bank_accounts(a):
             remove_checksum_invalid_bank_accounts(a)
             break
     return
-
 
 def fix_checksum_fail_bank_account(org_b_account,
                                    bdigit_to_dec,
@@ -234,7 +221,6 @@ def fix_checksum_fail_bank_account(org_b_account,
         org_b_account += ' ERR'
         return org_b_account
 
-
 def fix_illegal_bank_account(org_b_account, bdigit_to_dec, bdigit_account):
     """This function receives bank_account (org_b_account) which is 9 digit
     bank account in decimal format and which is supposed to contain at least
@@ -265,7 +251,6 @@ def fix_illegal_bank_account(org_b_account, bdigit_to_dec, bdigit_account):
         #  empty list, then return original + ILL
         org_b_account += ' ILL'
         return org_b_account
-
 
 def bdigit_account_to_dec(bdigit_account, bdigit_to_dec):
     """ Function receives a 9 big digit account number (bdigit_account) and
@@ -299,7 +284,6 @@ def bdigit_account_to_dec(bdigit_account, bdigit_to_dec):
                                                        bdigit_account)
     return b_account
 
-
 def get_bdigit_account(bdigit_account, fi):
     """Function reads a big digit account number from file fi and stores that
     to bdigit_account. Valid bdigit_account is returned to caller if function
@@ -316,7 +300,6 @@ def get_bdigit_account(bdigit_account, fi):
             bdigit_account.append(line)
             line_nmb += 1
     return False
-
 
 def process_bdigit_file(input_file):
     """Reads bank accounts in big digit format from the given input file
@@ -339,7 +322,6 @@ def process_bdigit_file(input_file):
             del bdigit_account[:]
     return bank_account
 
-
 if __name__ == '__main__':
     if(len(sys.argv) == 2):
         b = []
@@ -349,8 +331,4 @@ if __name__ == '__main__':
                 fo.write(b[i]+'\n')
     else:
         print 'usage: python ocr.py <input file>'
-
-
-
-
 
