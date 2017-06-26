@@ -1,6 +1,7 @@
 # Ossi Ouri
 # Task description: http://codingdojo.org/cgi-bin/index.pl?KataBankOCR
 # Testing - testing - testing - testing
+# And next trial in master branch
 
 import sys
 
