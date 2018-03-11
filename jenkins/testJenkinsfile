@@ -1,0 +1,13 @@
+#!groovy
+node { // <1>
+    echo 'Hello from Jenkinsfile' // <2> 
+    stage('Build') {
+        echo 'Hello from Build'
+    }
+    stage('Running tests') {
+        sh 'echo \'starting docker container\''
+    }
+    stage('Deploy') {
+        echo 'Hello from Deploy'
+    }
+}
