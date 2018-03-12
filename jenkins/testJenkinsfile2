@@ -1,0 +1,14 @@
+pipeline {
+    agent none
+    stages {
+        stage('Build') {
+            echo 'Hello from Build'
+        }
+        stage('Running tests') {
+            sh 'echo \'starting sh \''
+        }
+        stage('Deploy') {
+            echo 'Hello from Deploy'
+        }
+    }
+}
